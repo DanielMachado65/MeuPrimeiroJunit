@@ -1,7 +1,7 @@
 package br.ufpr.test;
 
 public class Calculadora {
-    public static int soma(int a, int b) {
+    public int soma(int a, int b) {
         return a + b;
     }
 }

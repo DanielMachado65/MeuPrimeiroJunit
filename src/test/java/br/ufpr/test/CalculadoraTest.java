@@ -30,6 +30,7 @@ public class CalculadoraTest {
     }
 
     @Test
+    @DisplayName("Teste simples de 2 + 3.")
     public void testSoma2e3() {
         int resultado = calculadora.soma(2, 3);
 
@@ -37,6 +38,7 @@ public class CalculadoraTest {
     }
 
     @Test
+    @DisplayName("Teste com valor máximo do integer, que deverá falhar. 😱")
     public void testSomaMuitoGrande() {
         int resultado = calculadora.soma(Integer.MAX_VALUE, 2);
 

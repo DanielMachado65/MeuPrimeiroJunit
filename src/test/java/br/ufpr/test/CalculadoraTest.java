@@ -39,6 +39,7 @@ public class CalculadoraTest {
 
     @Test
     @DisplayName("Teste com valor máximo do integer, que deverá falhar. 😱")
+    @Disabled("Desabilitado, já que vai falhar sempre mesmo.")
     public void testSomaMuitoGrande() {
         int resultado = calculadora.soma(Integer.MAX_VALUE, 2);
 

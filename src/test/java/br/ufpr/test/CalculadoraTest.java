@@ -29,9 +29,9 @@ public class CalculadoraTest {
         System.out.println("Este método é executado após de cada um dos testes desta classe.");
     }
 
-    @Test
     @Tag("Positivos")
     @DisplayName("Teste simples de soma")
+    @RepeatedTest(value = 5)
     public void testSoma2e3() {
         int resultado = calculadora.soma(2, 3);
 

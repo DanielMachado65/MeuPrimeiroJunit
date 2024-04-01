@@ -25,12 +25,12 @@ public class Calculadora {
         return gn;
     }
 
-    public Object divide(int dividendo, int divisor, boolean mascaraDivisaoPorZero) {
+    public int divide(int dividendo, int divisor, boolean mascaraDivisaoPorZero) {
         if (divisor == 0 && mascaraDivisaoPorZero) return 0;
-        return dividendo / divisor;
+        return divide(dividendo, divisor);
     }
 
-    public Object divide(int dividendo, int divisor) {
+    public int divide(int dividendo, int divisor) {
         return dividendo / divisor;
     }
 }

@@ -2,8 +2,7 @@ package br.ufpr.test;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculadoraTest {
     Calculadora calculadora;
@@ -35,7 +34,7 @@ public class CalculadoraTest {
     public void testSoma2e3() {
         int resultado = calculadora.soma(2, 3);
 
-        assertEquals(5, resultado);
+        assertEquals(5, resultado, "O resultado de 2+3 é diferente de 5");
     }
 
     @Test
@@ -53,16 +52,8 @@ public class CalculadoraTest {
     public void testMultiplica2eMenos3() {
         int resultado = calculadora.multiplica(2, -3);
 
-        assertEquals(-6, resultado);
-    }
-
-    @Test
-    @DisplayName("Teste com valor máximo do integer, que deverá falhar. 😱")
-    @Disabled("Desabilitado, já que vai falhar sempre mesmo.")
-    public void testSomaMuitoGrande() {
-        int resultado = calculadora.soma(Integer.MAX_VALUE, 2);
-
-        assertTrue(resultado > Integer.MAX_VALUE);
+        assertAll(() -> assertEquals(-6, resultado),
+                () -> assertTrue(resultado < 0));
     }
 }
 

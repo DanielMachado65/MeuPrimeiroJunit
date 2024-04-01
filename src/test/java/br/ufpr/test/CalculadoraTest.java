@@ -2,6 +2,7 @@ package br.ufpr.test;
 
 import org.junit.jupiter.api.*;
 
+import static java.time.Duration.ofMillis;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculadoraTest {
@@ -54,6 +55,12 @@ public class CalculadoraTest {
 
         assertAll(() -> assertEquals(-6, resultado),
                 () -> assertTrue(resultado < 0));
+    }
+
+    @Test
+    @DisplayName("Teste simples de progressão geométrica")
+    public void testPG() {
+        assertTimeoutPreemptively(ofMillis(500), () -> calculadora.pg(1, 2, 32));
     }
 }
 

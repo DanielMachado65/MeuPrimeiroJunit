@@ -25,6 +25,14 @@ public class Calculadora {
         return gn;
     }
 
+    public long pa(int inicial, int quociente, long valorMax) {
+        long gn = inicial;
+        while (gn <= valorMax) {
+            gn += quociente;
+        }
+        return gn;
+    }
+
     public int divide(int dividendo, int divisor, boolean mascaraDivisaoPorZero) {
         if (divisor == 0 && mascaraDivisaoPorZero) return 0;
         return divide(dividendo, divisor);

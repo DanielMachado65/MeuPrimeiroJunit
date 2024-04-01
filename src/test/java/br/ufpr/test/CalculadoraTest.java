@@ -35,7 +35,7 @@ public class CalculadoraTest {
     public void testSoma2e3() {
         int resultado = calculadora.soma(2, 3);
 
-        assertEquals(5, resultado, () -> "O resultado de 2+3 é diferente de 5");
+        assertEquals(5, resultado, "O resultado de 2+3 é diferente de 5");
     }
 
     @Test

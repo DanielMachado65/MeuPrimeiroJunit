@@ -30,11 +30,30 @@ public class CalculadoraTest {
     }
 
     @Test
-    @DisplayName("Teste simples de 2 + 3.")
+    @Tag("Positivos")
+    @DisplayName("Teste simples de soma")
     public void testSoma2e3() {
         int resultado = calculadora.soma(2, 3);
 
         assertEquals(5, resultado);
+    }
+
+    @Test
+    @Tag("Positivos")
+    @DisplayName("Teste simples de multiplicação")
+    public void testMultiplica2e3() {
+        int resultado = calculadora.multiplica(2, 3);
+
+        assertEquals(6, resultado);
+    }
+
+    @Test
+    @Tag("Negativos")
+    @DisplayName("Teste simples de multiplicação negativa")
+    public void testMultiplica2eMenos3() {
+        int resultado = calculadora.multiplica(2, -3);
+
+        assertEquals(-6, resultado);
     }
 
     @Test

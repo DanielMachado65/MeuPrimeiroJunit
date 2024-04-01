@@ -1,6 +1,8 @@
 package br.ufpr.test;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static java.time.Duration.ofMillis;
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,6 +39,16 @@ public class CalculadoraTest {
 
         assertEquals(5, resultado, "O resultado de 2+3 é diferente de 5");
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10, 15, 20, 25})
+    @DisplayName("Teste simples de soma de memória")
+    public void testSoma2e3Memoria(int memoria) {
+        int resultado = calculadora.somaComMemoria(2, 3);
+
+        assertEquals(memoria, resultado, "O resultado de 2+3 é diferente de 5");
+    }
+
 
     @Test
     @Tag("Positivos")

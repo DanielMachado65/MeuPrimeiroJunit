@@ -1,6 +1,14 @@
 package br.ufpr.test;
 
 public class Calculadora {
+    static int memoria = 0;
+
+    public int somaComMemoria(int a, int b) {
+        int resultado = soma(soma(a, b), memoria);
+        memoria = resultado;
+        return resultado;
+    }
+
     public int soma(int a, int b) {
         return a + b;
     }

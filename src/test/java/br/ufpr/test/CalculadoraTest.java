@@ -62,6 +62,19 @@ public class CalculadoraTest {
     public void testPG() {
         assertTimeoutPreemptively(ofMillis(500), () -> calculadora.pg(1, 2, 32));
     }
+
+    @Test
+    @DisplayName("Teste simples de não exceção")
+    public void testNoException() {
+        assertDoesNotThrow(() -> calculadora.divide(5, 0, true));
+    }
+
+    @Test
+    @DisplayName("Teste simples de exceção")
+    public void testException() {
+        assertThrows(ArithmeticException.class, () -> calculadora.divide(5, 0));
+        assertThrows(ArithmeticException.class, () -> calculadora.divide(5, 0, false));
+    }
 }
 
 

@@ -78,14 +78,13 @@ public class CalculadoraTest {
     @Test
     @DisplayName("Teste simples de não exceção")
     public void testNoException() {
-        assertDoesNotThrow(() -> calculadora.divide(5, 0, true));
+        assertDoesNotThrow(() -> calculadora.divideIgnorandoDivisorZero(5, 0));
     }
 
     @Test
     @DisplayName("Teste simples de exceção")
     public void testException() {
-        assertThrows(ArithmeticException.class, () -> calculadora.divide(5, 0));
-        assertThrows(ArithmeticException.class, () -> calculadora.divide(5, 0, false));
+        assertThrows(ArithmeticException.class, () -> calculadora.divideIgnorandoDivisorZero(5, 0));
     }
 }
 

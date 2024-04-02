@@ -37,8 +37,8 @@ public class Calculadora {
         return gn;
     }
 
-    public int divide(int dividendo, int divisor, boolean mascaraDivisaoPorZero) {
-        if (divisor == 0 && mascaraDivisaoPorZero) return 0;
+    public int divideIgnorandoDivisorZero(int dividendo, int divisor) {
+        if (divisor == 0) return 0;
         return divide(dividendo, divisor);
     }
 

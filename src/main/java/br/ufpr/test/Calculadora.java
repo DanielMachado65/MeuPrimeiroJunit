@@ -1,11 +1,15 @@
 package br.ufpr.test;
 
 public class Calculadora {
-    static int memoria = 0;
+    private final Memoria memoria;
+
+    public Calculadora(Memoria memoria) {
+        this.memoria = memoria;
+    }
 
     public int somaComMemoria(int a, int b) {
-        int resultado = soma(soma(a, b), memoria);
-        memoria = resultado;
+        int resultado = soma(soma(a, b), memoria.getMemoria());
+        memoria.setMemoria(resultado);
         return resultado;
     }
 

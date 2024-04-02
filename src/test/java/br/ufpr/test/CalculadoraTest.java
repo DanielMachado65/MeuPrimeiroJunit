@@ -23,7 +23,7 @@ public class CalculadoraTest {
     @BeforeEach
     void setUp() {
         System.out.println("Este método é executado antes de cada um dos testes desta classe.");
-        calculadora = new Calculadora();
+        calculadora = new Calculadora(new Memoria());
     }
 
     @AfterEach

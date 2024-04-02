@@ -16,7 +16,7 @@ public class CalculadoraJava17Test {
         assumeTrue(property.equals(EXPECTED_JAVA_VERSION),
                 "É esperado versão do Java %s, encontrado %s".formatted(EXPECTED_JAVA_VERSION, property));
 
-        calculadora = new Calculadora();
+        calculadora = new Calculadora(new Memoria());
     }
 
     @Test

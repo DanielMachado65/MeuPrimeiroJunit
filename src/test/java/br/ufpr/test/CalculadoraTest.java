@@ -49,6 +49,16 @@ public class CalculadoraTest {
         assertEquals(memoria, resultado, "O resultado de 2+3 é diferente de 5");
     }
 
+    @Test
+    @DisplayName("Teste com memoria stub")
+    public void testSomaComMemoriaStub() {
+        calculadora = new Calculadora(new MemoriaStub10());
+
+        int resultado = calculadora.somaComMemoria(2, 3);
+
+        assertEquals(15, resultado, "O resultado de 2+3+10 é diferente de 15");
+
+    }
 
     @Test
     @Tag("Positivos")

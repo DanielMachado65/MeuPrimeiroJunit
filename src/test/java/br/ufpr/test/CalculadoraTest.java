@@ -1,12 +1,17 @@
 package br.ufpr.test;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static java.time.Duration.ofMillis;
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 public class CalculadoraTest {
     Calculadora calculadora;
 
@@ -58,6 +63,17 @@ public class CalculadoraTest {
 
         assertEquals(15, resultado, "O resultado de 2+3+10 é diferente de 15");
 
+    }
+
+    @Test
+    @DisplayName("Teste com mock para entender estados")
+    public void testSomaComMemoriaMock(@Mock Memoria memoriaMock) {
+        Mockito.when(memoriaMock.getMemoria()).thenReturn(10);
+        Calculadora calculadora = new Calculadora(memoriaMock);
+
+        int resultado = calculadora.somaComMemoria(2, 3);
+
+        assertEquals(15, resultado, "O resultado de 2+3+10 é diferente de 15");
     }
 
     @Test

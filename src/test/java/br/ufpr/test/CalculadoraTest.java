@@ -6,14 +6,20 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static java.time.Duration.ofMillis;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class CalculadoraTest {
     Calculadora calculadora;
+
+    @Spy
+    private Memoria memoriaSpy = new Memoria();
 
     @BeforeAll
     static void setUpClass() {
@@ -74,6 +80,16 @@ public class CalculadoraTest {
         int resultado = calculadora.somaComMemoria(2, 3);
 
         assertEquals(15, resultado, "O resultado de 2+3+10 é diferente de 15");
+    }
+
+    @Test
+    @DisplayName("Teste com mock para espiar uma chamada")
+    public void testSpyMock() {
+        Calculadora calculadora = new Calculadora(memoriaSpy);
+
+        calculadora.somaComMemoria(2, 3);
+
+        verify(memoriaSpy, atLeastOnce()).setMemoria(5);
     }
 
     @Test
